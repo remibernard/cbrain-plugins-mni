@@ -23,30 +23,6 @@
 # A subclass of CbrainTask to launch bet of Civet.
 class CbrainTask::Civet
 
-  # Used in order to compare CIVET version:
-  # Return -1 if v1 <  v2 for example v1 = "1.1.11" and v2 = "1.1.12"
-  # Return 0  if v1 == v2 for example v1 = "1.1.11" and v2 = "1.1.11"
-  # Return 1  if v1 >  v2 for example v1 = "1.1.12" and v2 = "1.1.11"
-  def self.compare_versions(v1,v2)
-    v1 = $1 if v1 =~ /(\d+(\.\d+){2,})/
-    v2 = $1 if v2 =~ /(\d+(\.\d+){2,})/
-    raise "Cannot extract version number for comparison" if
-      v1.blank? || v2.blank?
-
-    v1 = v1.split(".").map(&:to_i)
-    v2 = v2.split(".").map(&:to_i)
-
-    while (v1.size < v2.size) do v1.push(0) end
-    while (v2.size < v1.size) do v2.push(0) end
-
-    0.upto(v1.size-1) do |i|
-      next if v1[i] ==  v2[i]
-      return  v1[i] <=> v2[i]
-    end
-
-    return 0  # everything is equal
-  end
-
   # Some options are interdependent for example
   # when CIVET run with -no_surface all options
   # for surface treatment are ignored
