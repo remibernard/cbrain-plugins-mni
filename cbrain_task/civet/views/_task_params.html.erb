@@ -197,13 +197,13 @@
 
       <%= form.params_label      :resample_surfaces_kernel_areas,   " With kernel size areas:",   :title => "FWHM for resampled surface areas\nList of integers separated by a ':' is accepted for version 2.0.0 and later" %>
       <%= form.params_text_field :resample_surfaces_kernel_areas,   :size => not_at_least_2_0_0 ? 4 : 12, :disabled => not_at_least_1_1_11 %>
-      <span class="field_explanation" style="max-width: 80em">(only for CIVET 1.1.11 or later; ignored otherwise)</span>
+      <span class="field_explanation" style="max-width: 80em">(40mm by default if left blank; only for CIVET 1.1.11 or later; ignored otherwise)</span>
 
       <br>
 
       <%= form.params_label      :resample_surfaces_kernel_volumes, " With kernel size volumes:", :title => "FWHM for resampled surface volumes\nList of integers separated by a ':' is accepted for version 2.0.0 and later" %>
       <%= form.params_text_field :resample_surfaces_kernel_volumes, :size => not_at_least_2_0_0 ? 4 : 12, :disabled => not_at_least_1_1_11 %>
-      <span class="field_explanation" style="max-width: 80em">(only for CIVET 1.1.11 or later; ignored otherwise)</span>
+      <span class="field_explanation" style="max-width: 80em">(40mm by default if left blank; only for CIVET 1.1.11 or later; ignored otherwise)</span>
     </div>
   </div>
 </fieldset>
