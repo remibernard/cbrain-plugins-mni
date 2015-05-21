@@ -509,8 +509,20 @@
       volumes: [
         {
           type: "minc",
-          header_url:   "<%= content_userfile_path(@userfile) + "?content_loader=get_headers_to_json" %>",
-          raw_data_url: "<%= content_userfile_path(@userfile) + "?content_loader=get_raw_data" %>",
+          header_url:   "<%=
+            viewer_userfile_url(@userfile,
+              :action       => :content,
+              :page_type    => :bare,
+              :query_params => { :content_loader => :get_headers_to_json }
+            ).html_safe
+          %>",
+          raw_data_url: "<%=
+            viewer_userfile_url(@userfile,
+              :action       => :content,
+              :page_type    => :bare,
+              :query_params => { :content_loader => :get_raw_data }
+            ).html_safe
+          %>",
         },
       ],
       complete: function() {
